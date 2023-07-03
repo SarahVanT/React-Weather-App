@@ -1,25 +1,9 @@
-* {
-  font-family: "Inter", sans-serif;
-}
 
-:root {
-  --background-color: linear-gradient(to top,
-      lightgrey 0%,
-      lightgrey 1%,
-      #e0e0e0 26%,
-      #efefef 48%,
-      #d9d9d9 75%,
-      #bcbcbc 100%);
-  --btn-color: #ec6e4c;
-  --btn-hover-color: #c55c3e;
-  --gray-text-color: #929292;
-}
-
-body{
+/* body{
   text-align: center;
-}
+} */
 
-.weather-app-wrapper{
+/* .weather-app-wrapper{
   max-width: 600px;
   margin: 50px auto;
 }
@@ -33,7 +17,7 @@ body{
 
 .WeatherResults li{
   list-style: none;
-}
+} */
 
 /* .btn-primary {
   background-color: #3382ea;
@@ -43,7 +27,7 @@ body{
   width: 40px;
 } */
 
-.ChangeMetric button{
+/* .ChangeMetric button{
   background: #8765f6;
   border: none; 
   border-radius: 8px;
@@ -54,5 +38,5 @@ body{
 
 .ChangeMetric button:hover{
   background: #795bde;
-}
+} */
 
