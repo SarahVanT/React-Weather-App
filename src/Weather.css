@@ -24,12 +24,6 @@
     list-style: none;
 }
 
-.Weather canvas{
-    position: relative;
-    bottom: -10px;
-    margin-right: 10px;
-    width: 64px;
-}
 
 .Weather .temperature{
     color: #212121;
