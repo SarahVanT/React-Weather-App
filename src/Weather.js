@@ -8,7 +8,6 @@ import "./Weather.css";
 
 export default function Weather(props){
     // preventing constant loop API call
-    // const[ready, setReady] = useState(false);
     const[weatherData, setWeatherData] = useState({ready: false});
     const[city, setCity] = useState(props.defaultCity);
     
@@ -16,6 +15,14 @@ export default function Weather(props){
     function handleResponse(response){
         console.log(response.data);
         const countryName = countryList.getName(response.data.sys.country);
+         // Split the description of the weather into separate words
+        let descriptionArray = response.data.weather[0].description.split(" ");
+        let capitalizedDescription = "";
+         // Loop through each word in the descriptionArray
+         // Capitalize the first letter of the word and add the rest of the word to it
+        descriptionArray.forEach(function (word) {
+            capitalizedDescription += word.charAt(0).toUpperCase() + word.slice(1) + " ";
+        });
 
         setWeatherData({
             ready: true,
@@ -24,7 +31,7 @@ export default function Weather(props){
             city: response.data.name,
             country: countryName,
             date: new Date(response.data.dt*1000),
-            description: response.data.weather[0].description,
+            description: (capitalizedDescription),
             icon: response.data.weather[0].icon,
             wind: response.data.wind.speed,
         })

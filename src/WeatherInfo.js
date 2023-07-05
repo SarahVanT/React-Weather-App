@@ -9,6 +9,7 @@ export default function WeatherInfo(props){
     return (
       <div className="WeatherInfo">
         <h1>{props.data.city}</h1>
+        <p>{props.data.country}</p>
             <ul>
                 {/* Calling component, sending date from timestamp */}
                 <li><FormattedDate date={props.data.date}/></li>
@@ -29,7 +30,6 @@ export default function WeatherInfo(props){
                     <ul>
                         <li>Precipitation: 18%</li>
                         <li>Wind: {props.data.wind}mph</li>
-                        <li>{props.data.country}</li> 
                     </ul>
                 </div>
             </div>
