@@ -14,13 +14,11 @@ export default function FormattedDate(props){
     let day = weekday[props.date.getDay()];
     let hours = addZero(props.date.getHours());
     let minutes = addZero(props.date.getMinutes());
-    let meridiem  = "";
+    
 
-    if (hours >= 12){
-        meridiem  += "PM";
-    } else{
-        meridiem  += "AM";
-    }
-
-    return <div>{day} {hours}:{minutes} {meridiem }</div>;
+    return (
+    <span>
+        {day} {hours}:{minutes}
+    </span>
+    );
 }

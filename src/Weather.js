@@ -68,7 +68,7 @@ export default function Weather(props){
                             <input 
                             type="search" 
                             placeholder="Enter a city"
-                            className="form-control"
+                            className="form-control search-input" 
                             autoFocus="on"
                             autoComplete="off"
                             onChange={handleInputChange}
@@ -85,7 +85,15 @@ export default function Weather(props){
                 </form>
                 <WeatherInfo data={weatherData}/>
                 <WeatherForecast coordinates={weatherData.coordinates}/>
+                <footer>
+                    This project was created by <a href='https://joyful-tiramisu-ce3d71.netlify.app/' target="_blank" rel="noreferrer"> Sarah VanTilburg</a> and is <a
+                    href="https://github.com/SarahVanT/React-Weather-App"
+                    target="_blank"
+                    rel="noreferrer"
+                    >open sourced on GitHub</a>
+                </footer>
             </div>
+            
         );
     } else{
         search();
