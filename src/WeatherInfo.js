@@ -11,8 +11,7 @@ export default function WeatherInfo(props){
       <div className="WeatherInfo">
         <div className="row">
             <div className="col-6">
-                <h1>{props.data.city}</h1>
-                {/* <p>{props.data.country}</p> */}
+                <h1>{props.data.city} - <span className="country">{props.data.country}</span></h1>
                 <ul>
                     {/* Calling component, sending date from timestamp */}
                     <li>
@@ -36,26 +35,6 @@ export default function WeatherInfo(props){
                 </div>
             </div>
         </div>
-         
-            
-            {/* <div className="row mt-3">
-                <div className="col-6">
-                    <div className="clearfix">
-                        <div className="float-left">
-                            <WeatherIcon code={props.data.icon} size={52}/>
-                            <WeatherTemperature celsius={props.data.temperature}/>
-                            
-                        </div>
-                    </div>
-                    
-                </div>
-                <div className="col-6">
-                    <ul>
-                        <li>Precipitation: 18%</li>
-                        <li>Wind: {props.data.wind}mph</li>
-                    </ul>
-                </div>
-            </div> */}
     </div>  
     );
 }

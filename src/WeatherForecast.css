@@ -1,19 +1,23 @@
 .WeatherForecast {
     text-align: center;
-    margin: 40px 0;
+    margin: 20px 0;
     border-bottom: 1px solid #f9f7fe;
     padding-bottom: 30px;
+    color: #212121;
+}
+
+.WeatherForecast .forecast-temperature {
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #f65282;
+    font-weight: bold;
 }
 
 .WeatherForecast-temperature-min{
-    opacity: 0.6;
+    color: #212121a9;
     margin-left: 5px;
 }
-
-/* .WeatherForecast canvas{
-    margin: 0;
-
-} */
 
 .WeatherForecast canvas{
     margin: 10px 0 !important;

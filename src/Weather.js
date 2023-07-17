@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
-import countryList from 'country-list';
+import countryList from "country-list";
 import WeatherForecast from "./WeatherForecast";
 
 import "./Weather.css";
 
-export default function Weather(props){
+export default function Weather(props) {
     // preventing constant loop API call
     const[weatherData, setWeatherData] = useState({ready: false});
     const[city, setCity] = useState(props.defaultCity);
+    // Error handling
+    const[error, setError] = useState(null);
+    const [formError, setFormError] = useState(false);
+
     
 
-    function handleResponse(response){
+    function handleResponse(response) {
         console.log(response.data);
         const countryName = countryList.getName(response.data.sys.country);
          // Split the description of the weather into separate words
@@ -26,37 +30,52 @@ export default function Weather(props){
 
         setWeatherData({
             ready: true,
+            coordinates: response.data.coord,
             temperature: response.data.main.temp,
             humidity: response.data.main.humidity,
             city: response.data.name,
-            country: countryName,
+            country: response.data.sys.country,
             date: new Date(response.data.dt*1000),
             description: (capitalizedDescription),
             icon: response.data.weather[0].icon,
             wind: response.data.wind.speed,
-            coordinates: response.data.coord,
-            // latitude: response.data.coord.lat,
-            // longitude: response.data.coord.lon,
         })
         
     }
 
-    function search (){
-        const apiKey = `6d68aadfacdd4f5163bc273049a0cf2d`;
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(handleResponse);
+    function handleError(error) {
+        setError(`Please enter a valid city name.`);
+        setFormError(true);
+        console.error(error);
     }
 
     // Function to handle form submission
     function handleSubmit(event){
         // Prevent default form submission
         event.preventDefault();
+        // Calling search function
         search();
 
     }
 
+    function search (){
+        const apiKey = `6d68aadfacdd4f5163bc273049a0cf2d`;
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+
+        axios
+            .get(apiUrl)
+            .then(handleResponse)
+            .catch(handleError);
+    }
+
+
     function handleInputChange(event){
         setCity(event.target.value);
+        // Reset the error state to null
+        setError(null); 
+        // Reset the formError state to false
+        setFormError(false);
     }
 
     if (weatherData.ready) {
@@ -68,7 +87,8 @@ export default function Weather(props){
                             <input 
                             type="search" 
                             placeholder="Enter a city"
-                            className="form-control search-input" 
+                            //  Add class name "error-input" if formError is true, returns empty str if formError is false
+                            className={`form-control search-input ${formError ? "error-input" : ""}`} 
                             autoFocus="on"
                             autoComplete="off"
                             onChange={handleInputChange}
@@ -83,6 +103,12 @@ export default function Weather(props){
                         </div>
                     </div>
                 </form>
+                {/* Display error message */}
+                {error && (
+                    <div className="error">
+                        <i className="fas fa-exclamation-circle"></i> {error}
+                    </div>
+                )}
                 <WeatherInfo data={weatherData}/>
                 <WeatherForecast coordinates={weatherData.coordinates}/>
                 <footer>
@@ -91,9 +117,13 @@ export default function Weather(props){
                     target="_blank"
                     rel="noreferrer"
                     >open sourced on GitHub</a>
+                    {" "}and{" "}<a
+                    href="https://superlative-lebkuchen-32b205.netlify.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                    >hosted on Netlify</a>
                 </footer>
-            </div>
-            
+            </div>  
         );
     } else{
         search();
