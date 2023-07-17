@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
-import countryList from "country-list";
+// import countryList from "country-list";
 import WeatherForecast from "./WeatherForecast";
 
 import "./Weather.css";
@@ -18,7 +18,7 @@ export default function Weather(props) {
 
     function handleResponse(response) {
         console.log(response.data);
-        const countryName = countryList.getName(response.data.sys.country);
+        // const countryName = countryList.getName(response.data.sys.country);
          // Split the description of the weather into separate words
         let descriptionArray = response.data.weather[0].description.split(" ");
         let capitalizedDescription = "";
