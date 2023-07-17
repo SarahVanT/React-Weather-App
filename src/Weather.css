@@ -7,8 +7,8 @@
 }
 
 .Weather form{
-    margin-top: 30px;
-    border-bottom: 1px solid #f9f7fe;
+    margin-top: 20px;
+    border-bottom: 1px solid #dcdcdc;
     padding-bottom: 30px;
 }
 
@@ -79,12 +79,17 @@
 
 .Weather .error{
     color: red;
-    text-align: center;
+    text-align: left;
+    font-size: 16px;
+    padding: 0;
+    padding-top: 8px;
 }
 
 .Weather .error-input {
     border: 2px solid red;
 }
+
+
 
 .Weather footer{
     font-size: 14px;
@@ -97,3 +102,5 @@
 .Weather footer a{
     color: #C6397A;
 }
+
+

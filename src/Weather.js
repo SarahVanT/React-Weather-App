@@ -102,13 +102,14 @@ export default function Weather(props) {
                             />
                         </div>
                     </div>
-                </form>
                 {/* Display error message */}
                 {error && (
                     <div className="error">
                         <i className="fas fa-exclamation-circle"></i> {error}
                     </div>
                 )}
+                </form>
+                
                 <WeatherInfo data={weatherData}/>
                 <WeatherForecast coordinates={weatherData.coordinates}/>
                 <footer>
