@@ -10,8 +10,8 @@ export default function WeatherInfo(props){
     return (
       <div className="WeatherInfo">
         <div className="row">
-            <div className="col-6">
-                <h1>{props.data.city} - <span className="country">{props.data.country}</span></h1>
+            <div className="col-12 col-sm-6 text-sm-left text-center">
+                <h1>{props.data.city} - {props.data.country}</h1>
                 <ul>
                     {/* Calling component, sending date from timestamp */}
                     <li>
@@ -23,14 +23,15 @@ export default function WeatherInfo(props){
                     </li>
                 </ul>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-8">
-                <div className="temperature-container d-flex justify-content-end">
+            <div className="col-12 col-sm-6 text-center">
+                <div className="temperature-container d-flex justify-content-center align-items-center">
                     <WeatherIcon code={props.data.icon} size={52}/>
                     <div>
                         <span className="temperature">
                             {Math.round(props.data.temperature)}
                         </span>
-                        <span className="unit">°F</span>
+                        <span className="unit">°F
+                        </span>
                     </div>
                 </div>
             </div>
