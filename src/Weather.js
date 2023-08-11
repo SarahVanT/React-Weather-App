@@ -113,7 +113,7 @@ export default function Weather(props) {
                 <WeatherInfo data={weatherData}/>
                 <WeatherForecast coordinates={weatherData.coordinates}/>
                 <footer>
-                    This project was created by <a href='https://joyful-tiramisu-ce3d71.netlify.app/' target="_blank" rel="noreferrer"> Sarah VanTilburg</a> and is <a
+                    This project was created by <a href='https://sarahvantilburg.netlify.app/' target="_blank" rel="noreferrer"> Sarah VanTilburg</a> and is <a
                     href="https://github.com/SarahVanT/React-Weather-App"
                     target="_blank"
                     rel="noreferrer"
